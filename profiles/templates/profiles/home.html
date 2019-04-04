@@ -1,0 +1,59 @@
+{% extends "profiles/index.html" %}
+{% block content %}
+<main role="main">
+
+  <!-- Main jumbotron for a primary marketing message or call to action -->
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">eCommerce:</h1>
+      <h3><em>New launches Samsung,Moto foldable phones coming soon.<br>
+      	Exciting deals begin in 2 days. <br>
+      	Massive discounts on phones.<br>
+      Can't wait.</em>
+      </h3>
+      <p><a class="btn btn-info btn-lg" href="#" role="button">Shop »</a></p>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Example row of columns -->
+    <div class="row">
+      <div class="col-md-4">
+        <h4>eCommerce: The One-stop Shopping Destination</h4>
+        <p>
+E-commerce is revolutionizing the way we all shop in India. Why do you want to shop from one store to another in search of the latest phone when you can find it on the Internet in a single click? Not only mobiles. we got them all covered. You name it, and you can stay assured about finding them all here. This e-commerce never shuts down.
+</p>
+      </div>
+      <div class="col-md-4">
+        <h2>Most searched:</h2>
+        <p>Vivo V15 Redmi Go Redmi note 7 pro Realme 3 Redmi Note 7 Microsoft Surface Go Asus Zenfone Max M2 Asus Max Pro M2 IPL T-shirts Popsockets Samsung A9  Smart Trackers Redmi Note 6 Pro Banarasi Sarees Ladies  Nokia 6.1 Plus Red Gowns Apna Time Aayega T-shirt Red Dresses Party Dresses Books How's the Josh T-shirts</p>
+      </div>
+      <div class="col-md-4">
+      	{% if request.user.is_authenticated %}
+      	<h2>Hello {{user.username}}</h2>
+      	{{user.email}}
+      	{% else %}
+        <form class="login" method="POST" action="/accounts/login/">
+  <input type="hidden" name="csrfmiddlewaretoken" value="ckHFImyoH02crtGtUyIwauTpr7CbjIQkzc2hdFvv4UFVGhHQfDJ6hJBypt4m3IOC">
+  
+
+<div id="div_id_login" class="form-group"> <label for="id_login" class="col-form-label  requiredField">
+                Login<span class="asteriskField">*</span> </label> <div class=""> <input type="text" name="login" placeholder="Username or e-mail" autofocus="autofocus" class="textinput textInput form-control" required="" id="id_login"> </div> </div> <div id="div_id_password" class="form-group"> <label for="id_password" class="col-form-label  requiredField">
+                Password<span class="asteriskField">*</span> </label> <div class=""> <input type="password" name="password" placeholder="Password" class="textinput textInput form-control" required="" id="id_password"> </div> </div> <div class="form-group"> <div id="div_id_remember" class="form-check"> <label for="id_remember" class="form-check-label"> <input type="checkbox" name="remember" class="checkboxinput form-check-input" id="id_remember">
+                    Remember Me
+                </label> </div> </div>
+
+  <a class="btn-sm button secondaryAction" href="{% url 'account_signup' %}">Sign Up</a>
+  <a class="btn-sm button secondaryAction" href="/accounts/password/reset/">Forgot Password?</a>
+  <button class="btn btn-primary btn-sm primaryAction" type="submit">Sign In</button>
+</form>
+      </div>
+      {% endif %}
+    </div>
+
+    <hr>
+
+  </div> <!-- /container -->
+
+</main>
+{% endblock %}
